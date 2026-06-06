@@ -1,20 +1,33 @@
 {
-  "name": "ithub-frontend-vue-final-project",
-  "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "license": "ISC",
-  "author": "",
+  "name": "store",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "storybook": "pnpm -F @repo/ui storybook",
-    "store:dev": "pnpm -F store dev",
-    "db:init": "pnpm -F store db:init",
-    "db:seed": "pnpm -F store db:seed",
-    "crawler:dev": "pnpm -F @repo/crawler dev",
-    "format": "pnpm -w oxfmt --write"
+    "build": "nuxt build",
+    "dev": "nuxt dev --dotenv .env.local",
+    "db:init": "tsx server/database/init.ts",
+    "db:seed": "tsx server/database/seed.ts",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "oxfmt": "^0.37.0"
+    "@pinia/nuxt": "^0.11.3",
+    "@repo/ui": "workspace:*",
+    "@vueuse/core": "^14.3.0",
+    "better-sqlite3": "12.2.0",
+    "kysely": "^0.29.2",
+    "nuxt": "4.3.1",
+    "nuxt-auth-utils": "^0.5.29",
+    "pinia": "^3.0.4",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "tsx": "^4.21.0",
+    "vite-plugin-node-polyfills": "^0.28.0",
+    "vue": "^3.5.32",
+    "vue-router": "^5.0.4",
+    "zod": "^4.4.3"
   },
-  "packageManager": "pnpm@11.1.3"
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13"
+  }
 }
